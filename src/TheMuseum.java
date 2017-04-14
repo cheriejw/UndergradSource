@@ -282,13 +282,13 @@ public class TheMuseum {
         // sb.deleteCharAt(sb.length() - 1);
 
         try (PrintWriter out =
-                new PrintWriter("/home/cheriejw/workspace/java/CECS428/Museum/src/cover.txt")) {
+                new PrintWriter("cover.txt")) {
             out.print(sb.toString());
         }
     }
 
     public static void main(String[] args) throws IOException {
-        File input = new File("/home/cheriejw/workspace/java/CECS428/Museum/src/graph.txt");
+        File input = new File("graph.txt");
         Scanner scan = new Scanner(input);
         String line = scan.next();
 
