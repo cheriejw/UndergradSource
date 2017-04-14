@@ -161,7 +161,7 @@ public class TheMuseum {
         start=System.currentTimeMillis();
         while (!allTraveled()){
             ++counter;
-            if(counter > 200000){
+            if(counter > 70000){
                 for(int k = 0; k < traveled.length; ++k){
                     if(!traveled[k]){
                         rand = k;
