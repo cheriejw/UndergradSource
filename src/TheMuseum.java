@@ -161,7 +161,7 @@ public class TheMuseum {
         start=System.currentTimeMillis();
         while (!allTraveled()){
             ++counter;
-            if(counter > 70000){
+            if(counter > 40000){
                 for(int k = 0; k < traveled.length; ++k){
                     if(!traveled[k]){
                         rand = k;
@@ -180,6 +180,7 @@ public class TheMuseum {
             if (gaurdOff == true) {
                 gaurds.remove("" + rand);
             } 
+            traveled[rand] = true;
         }
         
         System.out.println("Took time of : " + (System.currentTimeMillis() - start) + " for " + System.getenv("WINDOWID"));
@@ -197,6 +198,8 @@ public class TheMuseum {
         }
         System.out.println("Number of gaurds on duty after global check: " + gaurds.size() + " gaurds.");
     }
+    
+    
     
     public boolean allTraveled()
     {
