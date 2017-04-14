@@ -293,7 +293,8 @@ public class TheMuseum {
         }
 
         // System.out.println(instance.get(49999)[0]);
-        instance.cover();
+        //instance.cover();
+        instance.desprate();
         instance.printGaurds();
 
         // File check = new File("/home/cheriejw/workspace/java/CECS428/Museum/src/cover.txt");
