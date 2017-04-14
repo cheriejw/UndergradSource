@@ -143,6 +143,7 @@ public class TheMuseum {
         // for (int i = 0; i < graphR.length; ++i) {
 
         Random r = new Random();
+        long start;
         int i;
         System.out.println("Gaurd with least hallways has " + graph.get(0).getV().size() + " hallways.");
         System.out.println("Gaurd with most hallways has " + graph.get(graph.size() - 1).getV().size() + " hallways.");
@@ -157,6 +158,7 @@ public class TheMuseum {
         System.out.println("Number of gaurds on duty after removing those gaurding one hallway: " + gaurds.size() + " gaurds.");
 
         int rand = r.nextInt(graphR.length), counter = 0;
+        start=System.currentTimeMillis();
         while (!allTraveled()){
             ++counter;
             if(counter > 200000){
@@ -179,6 +181,9 @@ public class TheMuseum {
                 gaurds.remove("" + rand);
             } 
         }
+        
+        System.out.println("Took time of : " + (System.currentTimeMillis() - start) + " for " + System.getenv("WINDOWID"));
+        
         System.out.println("Number of gaurds on duty after random cuts: " + gaurds.size() + " gaurds.");
         for (i = 0; i < graph.size(); ++i) { // 3700
             gaurdOff = true;
