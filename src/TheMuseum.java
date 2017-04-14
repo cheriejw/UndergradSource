@@ -14,15 +14,19 @@ import java.util.stream.Collectors;
 public class TheMuseum {
 
     private int[] graphR; // edgeCount;
+    private boolean[] traveled;
     private ArrayList<Pair> graph;
-    private ArrayList<String> gaurds, edgesMaster;
+    private ArrayList<String> gaurds ,edgesMaster;
 
     public TheMuseum(int size) {
         this.graphR = new int[size];
+        this.traveled = new boolean[size];
         // this.edgeCount = new int[size];
+        //this.notTraveled = new ArrayList<String>();
         this.graph = new ArrayList<Pair>();
         this.gaurds = new ArrayList<String>();
         this.edgesMaster = new ArrayList<String>();
+        Arrays.fill(traveled, false);
     }
 
     public void cover() {
@@ -129,6 +133,70 @@ public class TheMuseum {
         System.out.println("Number of gaurds on duty after global check: " + gaurds.size() + " gaurds.");
         // System.out.println(edgesMaster.size());
         s.close();
+    }
+    
+    public void desprate(){
+        sort();
+        index();
+
+        boolean gaurdOff; // if it is false, gaurd cant be relieved of duty.
+        // for (int i = 0; i < graphR.length; ++i) {
+
+        Random r = new Random();
+        int i;
+        System.out.println("Gaurd with least hallways has " + graph.get(0).getV().size() + " hallways.");
+        System.out.println("Gaurd with most hallways has " + graph.get(graph.size() - 1).getV().size() + " hallways.");
+
+        // cant be wrong, all the ones looking at only one hall can leave.
+        for (i = 0; graph.get(i).getV().size() == 1; ++i) {
+            gaurds.remove("" + graph.get(i).getK());
+            traveled[graph.get(i).getK()] = true;
+            traveled[graph.get(i).getV().get(0)] = true;
+        }
+        
+        System.out.println("Number of gaurds on duty after removing those gaurding one hallway: " + gaurds.size() + " gaurds.");
+
+        int rand = r.nextInt(graphR.length), counter = 0;
+        while (!allTraveled()){
+            ++counter;
+            if(counter > 200000){
+                for(int k = 0; k < traveled.length; ++k){
+                    if(!traveled[k]){
+                        rand = k;
+                    }
+                }
+            } else {
+                while (traveled[rand]){
+                    rand = r.nextInt(graphR.length);
+                }
+            }
+            gaurdOff = true;
+            for (int neighbor : graph.get(graphR[rand]).getV()) {
+                gaurdOff = gaurdOff && gaurds.contains("" + neighbor);
+            }
+
+            if (gaurdOff == true) {
+                gaurds.remove("" + rand);
+            } 
+        }
+        System.out.println("Number of gaurds on duty after random cuts: " + gaurds.size() + " gaurds.");
+        for (i = 0; i < graph.size(); ++i) { // 3700
+            gaurdOff = true;
+            for (int neighbor : graph.get(i).getV()) {
+                gaurdOff = gaurdOff && gaurds.contains("" + neighbor);
+            }
+
+            if (gaurdOff == true) {
+                gaurds.remove("" + graph.get(i).getK());
+            } 
+        }
+        System.out.println("Number of gaurds on duty after global check: " + gaurds.size() + " gaurds.");
+    }
+    
+    public boolean allTraveled()
+    {
+        for(boolean b : traveled) if(!b) return false;
+        return true;
     }
 
     // pass in a string formatted as such: "2:1,3,4")
