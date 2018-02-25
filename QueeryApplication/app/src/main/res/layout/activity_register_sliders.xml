@@ -1,0 +1,198 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:rsb="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:layout_width="match_parent">
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Set Sliders"
+            android:id="@+id/textSliderView"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="20px" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Personal Sliders"
+            android:id="@+id/textPersonalView"
+            android:paddingBottom="20dp"
+            />
+
+        <TextView
+            android:text="Gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <org.florescu.android.rangeseekbar.RangeSeekBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/pGenderBar"
+            android:layout_gravity="center_horizontal"
+            rsb:absoluteMaxValue="20"
+            rsb:absoluteMinValue="1"
+            rsb:showLabels="false"
+            rsb:barHeight="5dp"
+            rsb:singleThumb="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Man                                                                                                              Woman"
+            android:id="@+id/textView11"
+            android:textSize="10dp" />
+
+        <TextView
+            android:text="Expression"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp" />
+
+        <org.florescu.android.rangeseekbar.RangeSeekBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/pExpressionBar"
+            android:layout_gravity="center_horizontal"
+            rsb:absoluteMaxValue="20"
+            rsb:absoluteMinValue="1"
+            rsb:showLabels="false"
+            rsb:barHeight="5dp"
+            rsb:singleThumb="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Masculine                                                                                                  Feminine"
+            android:id="@+id/textView12"
+            android:textSize="10dp" />
+
+        <TextView
+            android:text="Orientation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp" />
+
+        <org.florescu.android.rangeseekbar.RangeSeekBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/pOrientationBar"
+            android:layout_gravity="center_horizontal"
+            rsb:absoluteMaxValue="20"
+            rsb:absoluteMinValue="1"
+            rsb:showLabels="false"
+            rsb:barHeight="5dp"
+            rsb:singleThumb="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Straight                                                                                                                Gay"
+            android:id="@+id/textView13"
+            android:textSize="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Seeking Sliders"
+            android:id="@+id/textView2"
+            android:paddingBottom="20dp"
+            android:paddingTop="20dp" />
+
+        <TextView
+            android:text="Gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <org.florescu.android.rangeseekbar.RangeSeekBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/sGenderBar"
+            android:layout_gravity="center_horizontal"
+            rsb:absoluteMaxValue="20"
+            rsb:absoluteMinValue="1"
+            rsb:showLabels="false"
+            rsb:barHeight="5dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Man                                                                                                              Woman"
+            android:id="@+id/textView16"
+            android:textSize="10dp" />
+
+        <TextView
+            android:text="Expression"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp" />
+
+        <org.florescu.android.rangeseekbar.RangeSeekBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/sExpressionBar"
+            android:layout_gravity="center_horizontal"
+            rsb:absoluteMaxValue="20"
+            rsb:absoluteMinValue="1"
+            rsb:showLabels="false"
+            rsb:barHeight="5dp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Masculine                                                                                                  Feminine"
+            android:id="@+id/textView15"
+            android:textSize="10dp" />
+
+        <TextView
+            android:text="Orientation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp" />
+
+        <org.florescu.android.rangeseekbar.RangeSeekBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/sOrientationBar"
+            android:layout_gravity="center_horizontal"
+            rsb:absoluteMaxValue="20"
+            rsb:absoluteMinValue="1"
+            rsb:showLabels="false"
+            rsb:barHeight="5dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Straight                                                                                                                Gay"
+            android:id="@+id/textView14"
+            android:textSize="10dp" />
+
+        <Button
+            android:id="@+id/bSaveRegister"
+            android:text="Save and Register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</ScrollView>

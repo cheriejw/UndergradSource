@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Queery Dating</string>
+    
+    <string name="hello_world">This is default screen...</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_matches">Matches</string>
+    <string name="title_activity_slider_update">SliderUpdate</string>
+    <string name="title_activity_homepage">Homepage</string>
+    <string name="title_activity_register_sliders">RegisterSliders</string>
+    <string name="title_activity_matches">Matches</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_my_profile">Profile</string>
+    <string name="demo_min_label">Min</string>
+    <string name="demo_max_label">Max</string>
+    <string name="title_activity_register_profile_pic">RegisterProfilePic</string>
+</resources>

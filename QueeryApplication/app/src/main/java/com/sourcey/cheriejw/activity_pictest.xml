@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tableLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/userNameTXT"/>
+
+    <TextView android:layout_width="match_parent"
+        android:text="User Name to Test"
+        android:id="@+id/textBox1" />
+
+    <EditText
+        android:id="@+id/passwordTXT"
+        android:inputType="textPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView android:layout_width="match_parent"
+        android:text="User's password (get/update)"
+        android:id="@+id/textBox2" />
+
+
+    <ImageView
+        android:layout_width="345dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/proPic"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.04" />
+
+    <TableRow>
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="get Pic"
+            android:id="@+id/getPicBtn"
+            android:layout_weight="0.05" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose pic"
+            android:id="@+id/resetBtn"/>
+
+    </TableRow>
+
+    <TableRow>
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose pic"
+            android:id="@+id/choosePicBtn"
+            android:layout_marginBottom="20dp"/>
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:id="@+id/addPicBtn"
+            android:layout_marginBottom="20dp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update"
+            android:id="@+id/updatePicBtn"
+            android:layout_marginBottom="20dp"/>
+
+    </TableRow>
+</TableLayout>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:rsb="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.sourcey.cheriejw.Matches">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_matches"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:padding="12dp"
+        android:text="Get Matches"/>
+
+    <include layout="@layout/content_matches" />
+
+    <!--<android.support.design.widget.FloatingActionButton-->
+        <!--android:id="@+id/fab"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="bottom|end"-->
+        <!--android:layout_margin="@dimen/fab_margin"-->
+        <!--android:src="@android:drawable/ic_dialog_email" />-->
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+
+        tools:context=".MainActivity" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:text=" Computer Languages..." />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText"
+            android:layout_below="@+id/textView1"
+            android:layout_alignRight="@+id/textView1"
+            android:layout_alignEnd="@+id/textView1"
+            android:layout_marginTop="42dp"
+            android:text="Matches Found" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:layout_below="@+id/editText"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Someguy91"
+            android:id="@+id/textView23"
+            android:layout_alignTop="@+id/imageView"
+            android:layout_toLeftOf="@+id/editText"
+            android:layout_toStartOf="@+id/editText" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="6 miles away"
+            android:id="@+id/textView24"
+            android:layout_below="@+id/textView25"
+            android:layout_alignLeft="@+id/textView25"
+            android:layout_alignStart="@+id/textView25" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="23"
+            android:id="@+id/textView25"
+            android:layout_below="@+id/textView23"
+            android:layout_alignLeft="@+id/textView23"
+            android:layout_alignStart="@+id/textView23" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Sliders"
+            android:id="@+id/textView26"
+            android:layout_above="@+id/view"
+            android:layout_alignLeft="@+id/textView24"
+            android:layout_alignStart="@+id/textView24" />
+
+        <org.florescu.android.rangeseekbar.RangeSeekBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/view"
+            rsb:showLabels="false"
+            rsb:barHeight="5dp"
+            rsb:singleThumb="true"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/textView26"
+            android:layout_alignRight="@+id/editText"
+            android:layout_alignEnd="@+id/editText" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Gender"
+            android:id="@+id/textView27"
+            android:layout_centerVertical="true"
+            android:layout_alignLeft="@+id/textView26"
+            android:layout_alignStart="@+id/textView26" />
+
+        <org.florescu.android.rangeseekbar.RangeSeekBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/view2"
+            rsb:showLabels="false"
+            rsb:barHeight="5dp"
+            rsb:singleThumb="true"
+            android:layout_below="@+id/textView27"
+            android:layout_alignLeft="@+id/view"
+            android:layout_alignStart="@+id/view"
+            android:layout_alignRight="@+id/view"
+            android:layout_alignEnd="@+id/view" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Expression"
+            android:id="@+id/textView28"
+            android:layout_below="@+id/view"
+            android:layout_alignLeft="@+id/textView27"
+            android:layout_alignStart="@+id/textView27" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Orientation"
+            android:id="@+id/textView29"
+            android:layout_below="@+id/view2"
+            android:layout_alignLeft="@+id/textView28"
+            android:layout_alignStart="@+id/textView28" />
+
+        <org.florescu.android.rangeseekbar.RangeSeekBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/view3"
+            rsb:showLabels="false"
+            rsb:barHeight="5dp"
+            rsb:singleThumb="true"
+            android:layout_below="@+id/textView28"
+            android:layout_alignLeft="@+id/view2"
+            android:layout_alignStart="@+id/view2"
+            android:layout_alignRight="@+id/view2"
+            android:layout_alignEnd="@+id/view2" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Message"
+            android:id="@+id/button"
+            android:layout_below="@+id/view2"
+            android:layout_toRightOf="@+id/editText"
+            android:layout_toEndOf="@+id/editText" />
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>
