@@ -1,0 +1,76 @@
+import java.io.IOException;
+import java.nio.file.FileVisitResult;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.SimpleFileVisitor;
+import java.nio.file.attribute.BasicFileAttributes;
+
+/**
+ * This class will go into the HAMILTON, JAY, MADISON, H&M, H||M
+ * files and turn all the text into JSON files.
+ * 
+ * Json files will be written into a folder called Papers and
+ * named the text name and have author attribute with author name
+ * saved into it with title and body.
+ * 
+ * @author Cherie Woo
+ *
+ */
+
+public class Text_JSON {
+
+	/**
+	 * Give this the dir/HAMILTON or whatever you want.
+	 * @param pathDir
+	 * @throws IOException
+	 */
+	public void runFile(String pathDir) throws IOException{
+		Path textDir = Paths.get(pathDir);
+		//This will walk through the path; so give it something like dir/HAMILTON.
+		Files.walkFileTree(textDir, new SimpleFileVisitor<Path>() {
+			public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) {
+				if (textDir.equals(dir)) {
+					return FileVisitResult.CONTINUE;
+				}	
+				return FileVisitResult.SKIP_SUBTREE;
+			}
+			
+			public FileVisitResult visitFile(Path file,
+					BasicFileAttributes attrs) throws IOException {
+				if (file.toString().endsWith(".txt")) {
+					//what you want with txt files.
+				}
+				return FileVisitResult.CONTINUE;
+			}
+			public FileVisitResult visitFileFailed(Path file, IOException e) {
+				return FileVisitResult.CONTINUE;
+			}
+		});
+	}
+	
+	public JSONobject getJObj(){
+		JSONobject jobj = new JSONobject();
+		jobj.author = getAuthor();
+		jobj.title = getTitle();
+		jobj.body = getBody();
+		return jobj;
+	}
+	
+	public String getTitle(){
+		
+	}
+	
+	public String getBody(){
+		
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String getAuthor(Path pathDir){
+		System.out.println(pathDir.getParent().getFileName().toString());
+		return pathDir.getParent().getFileName().toString(); //Should be MADISON
+	}
+}

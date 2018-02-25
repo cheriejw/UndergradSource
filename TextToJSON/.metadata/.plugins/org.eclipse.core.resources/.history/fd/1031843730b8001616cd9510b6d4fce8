@@ -1,0 +1,10 @@
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+public class TestingJava {
+
+	public static void main(String[]args){
+		Path pathDir = Paths.get("\\d\\Workspaces\\CECS429\\JSONPARSE\\ParsingHamFiles\\src\\MADISON");
+		System.out.println(pathDir.getParent().getFileName().toString());
+	}
+}

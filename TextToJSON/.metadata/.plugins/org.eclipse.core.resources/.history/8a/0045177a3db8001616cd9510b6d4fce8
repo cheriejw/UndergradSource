@@ -1,0 +1,166 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+import java.nio.file.FileVisitResult;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.SimpleFileVisitor;
+import java.nio.file.attribute.BasicFileAttributes;
+
+import com.google.gson.Gson;
+
+/**
+ * This class will go into the HAMILTON, JAY, MADISON, H&M, H||M
+ * files and turn all the text into JSON files.
+ * 
+ * Json files will be written into a folder called Papers and
+ * named the text name and have author attribute with author name
+ * saved into it with title and body.
+ * 
+ * @author Cherie Woo
+ *
+ */
+
+public class Text_JSON {
+
+	/**
+	 * Give this the dir/HAMILTON or whatever you want.
+	 * @param pathDir
+	 * @throws IOException
+	 */
+	public void runFile(String pathDir) throws IOException{
+		Path textDir = Paths.get(pathDir);
+		
+		//This will walk through the path; so give it something like dir/HAMILTON.
+		Files.walkFileTree(textDir, new SimpleFileVisitor<Path>() {
+			public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) {
+				if (textDir.equals(dir)) {
+					return FileVisitResult.CONTINUE;
+				}	
+				return FileVisitResult.SKIP_SUBTREE;
+			}
+			
+			public FileVisitResult visitFile(Path file,
+					BasicFileAttributes attrs) throws IOException {
+				if (file.toString().endsWith(".txt")) {
+					//what you want with txt files.
+					JSONobject jobj = getJObj(file);
+					writeJSON(file, jobj);
+				}
+				return FileVisitResult.CONTINUE;
+			}
+			public FileVisitResult visitFileFailed(Path file, IOException e) {
+				return FileVisitResult.CONTINUE;
+			}
+		});
+	}
+	
+	/**
+	 * Give this the specific file path to the txt file. 
+	 * @return
+	 * @throws IOException 
+	 */
+	public JSONobject getJObj(Path pathDir) throws IOException{
+		JSONobject jobj = new JSONobject();
+		jobj.author = getAuthor(pathDir);
+		jobj.title = getTitle(pathDir);
+		jobj.body = getBody(pathDir);
+		return jobj;
+	}
+	
+	/**
+	 * Taking everything from the beginning of file until you get two new line in a row.
+	 * @param pathDir
+	 * @return
+	 * @throws IOException 
+	 */
+	public String getTitle(Path pathDir) throws IOException{
+		BufferedReader br = new BufferedReader(new FileReader(pathDir.toString()));
+		String line;
+		String title;
+		try {
+		    StringBuilder sb = new StringBuilder();
+		    line = br.readLine();
+
+		    while (line.length() < 2) { //once you read the empty line stop.
+		        sb.append(line);
+		        sb.append(System.lineSeparator());
+		        line = br.readLine();
+		    }
+		    
+		    title = sb.toString();
+		} finally {
+		    br.close();
+		}
+		return title;
+	}
+	
+	/**
+	 * Start copying after you read 
+	 * @param pathDir
+	 * @return
+	 * @throws IOException 
+	 */
+	public String getBody(Path pathDir) throws IOException{
+		BufferedReader br = new BufferedReader(new FileReader(pathDir.toString()));
+		String line, body;
+		int count = 0;
+		try {
+		    StringBuilder sb = new StringBuilder();
+		    line = br.readLine();
+
+		    while (line != null) {
+		    	if (line.length() < 2)
+		    		count++;
+		    	if (count == 2) { //usually starts after two newlines.
+			        sb.append(line);
+			        sb.append(System.lineSeparator());
+		    	}
+		        line = br.readLine();
+		    }
+		    
+		    body = sb.toString();
+		} finally {
+		    br.close();
+		}
+		return body;
+	}
+	
+	/**
+	 * For that specific text file you will get the name of the file it is in.
+	 * @return
+	 */
+	public String getAuthor(Path pathDir){
+		return pathDir.getParent().getFileName().toString(); //Should be MADISON
+	}
+	
+	/**
+	 * This method will given the JSON structure turn into JSON file and
+	 * write it. ex: paper_47.txt --> paper_47.json
+	 * 
+	 * Turns JSONobject into json text via gson and writes that to file.
+	 * 
+	 * Manually change the path location.
+	 * @param jobj
+	 */
+	public void writeJSON(Path pathTxt, JSONobject jobj){
+		Writer writer = null;
+		Gson gson = new Gson();
+		String json = gson.toJson(jobj);
+		try {
+			writer = new BufferedWriter(new OutputStreamWriter(
+					new FileOutputStream("D:\\Workspaces\\CECS429\\JSONPARSE\\JsonResults\\" + pathTxt.getFileName().toString().replace(".txt", ".json")), "utf-8"));
+			writer.write(json);
+		} catch (IOException e) {
+			System.out.println("IOException triggered.");
+		} finally {
+			try {writer.close();} catch (Exception e) {}
+		}
+	}
+}

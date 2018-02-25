@@ -1,0 +1,49 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+import com.google.gson.Gson;
+
+public class TestingJava {
+
+	public static void main(String[]args) throws IOException{
+		//Testing Paths
+		Path pathDir = Paths.get("\\d\\Workspaces\\CECS429\\JSONPARSE\\ParsingHamFiles\\src\\MADISON\\paper_10.txt");
+		System.out.println(pathDir.getParent().getFileName().toString());
+	
+		//Testing Gson
+		Gson gson = new Gson();
+		JSONobject jobj = new JSONobject();
+		jobj.author = "AUTHOR";
+		jobj.body = "BODY";
+		jobj.title = "TITLE";
+		String json = gson.toJson(jobj);
+		System.out.println(json);
+		
+		//Testing Reader
+		BufferedReader br = new BufferedReader(new FileReader("D:\\Workspaces\\CECS429\\JSONPARSE\\ParsingHamFiles\\src\\MADISON\\paper_10.txt"));
+		String line, body;
+		int count = 0;
+		try {
+		    StringBuilder sb = new StringBuilder();
+		    line = br.readLine();
+
+		    while (line != null) {
+		    	if (line.length() < 2)
+		    		count++;
+		    	if (count == 2) { //usually starts after two newlines.
+			        sb.append(line);
+			        sb.append(System.lineSeparator());
+		    	}
+		        line = br.readLine();
+		    }
+		    
+		    body = sb.toString();
+		} finally {
+		    br.close();
+		}
+		System.out.println(body);
+	}
+}
